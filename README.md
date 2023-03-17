@@ -2,9 +2,12 @@
 [Watch the video](https://youtu.be/IpvomwK4SoU)
 
 This is overview of a possible architecture for a system that can detect "bad objects" and stop all motor functions using multiple cameras, ROS, and Python:
-## 1. Camera Nodes: Each camera will be simulated as a ROS node. These nodes will capture images and publish them on a ROS topic. To simulate the detection of "bad objects," the camera nodes will randomly or time-basedly publish an error message on a separate ROS topic.
-## 2.Object Detection Nodes: These nodes will receive the images published by the camera nodes, and using computer vision techniques, they will analyze the images to detect any "bad objects." If any "bad objects" are detected, the nodes will publish a message on a separate ROS topic to trigger the motor control node to stop all motors.
-## 3.Motor Control Node: This node will receive the error messages published by the object detection nodes and stop all motor functions when it receives the error message. The motor control node will implement a ROS service that can be called to start or stop the motors.
+## 1. Camera Nodes: 
+Each camera will be simulated as a ROS node. These nodes will capture images and publish them on a ROS topic. To simulate the detection of "bad objects," the camera nodes will randomly or time-basedly publish an error message on a separate ROS topic.
+## 2.Object Detection Nodes: 
+These nodes will receive the images published by the camera nodes, and using computer vision techniques, they will analyze the images to detect any "bad objects." If any "bad objects" are detected, the nodes will publish a message on a separate ROS topic to trigger the motor control node to stop all motors.
+## 3.Motor Control Node:
+This node will receive the error messages published by the object detection nodes and stop all motor functions when it receives the error message. The motor control node will implement a ROS service that can be called to start or stop the motors.
 ## 4.Main Controller Node: This node will be responsible for connecting the camera nodes, object detection nodes, and motor control node. It will subscribe to the error messages published by the object detection nodes and call the motor control node's service to stop all motor functions if any "bad objects" are detected.
 
 With this architecture, we can have a scalable and modular system that can be extended to accommodate more cameras, and it can also handle different types of "bad objects" by changing the object detection nodes.
