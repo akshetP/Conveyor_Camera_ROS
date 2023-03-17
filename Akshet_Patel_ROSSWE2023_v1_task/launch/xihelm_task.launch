@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<launch>
+
+    <!-- launch the camera nodes -->
+    <node pkg="xihelm_task" type="camera_node.py" name="camera1" />
+    <node pkg="xihelm_task" type="camera_node.py" name="camera2" />
+    <node pkg="xihelm_task" type="camera_node.py" name="camera3" />
+
+    <!-- launch the object detection nodes -->
+    <node pkg="xihelm_task" type="object_detection_node.py" name="detector1" />
+    <node pkg="xihelm_task" type="object_detection_node.py" name="detector2" />
+    <node pkg="xihelm_task" type="object_detection_node.py" name="detector3" />
+
+    <!-- launch the motor control node -->
+    <node pkg="xihelm_task" type="motor_control_node.py" name="motor_control" />
+
+    <!-- launch the main controller node -->
+    <node pkg="xihelm_task" type="main_controller_node.py" name="main_controller" output="screen"/>
+
+</launch>
+
